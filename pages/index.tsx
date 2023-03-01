@@ -2,12 +2,13 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import bg from '../public/elefants.jpg'
-import {useState} from "react";
-type Language = 'en' | 'he' | 'ru';
+import {useContext, useState} from "react";
+import LanguageSwitcher from "../components/LanguageSwitcher";
+import {LanguageContext, LanguageType} from "../context/LanguageContext";
 
 export default function Home() {
-  const [lang, setLang] = useState<Language>('en');
-  const content: { [key in Language]?: {
+  const { language } = useContext(LanguageContext);
+  const content: { [key in LanguageType]?: {
     name: string,
     list: string[]
   } } = {
@@ -15,8 +16,12 @@ export default function Home() {
       name: 'Lidia Nekliuienko',
       list: ['Drawing teacher for all ages', 'Pictures, portraits to order'],
     },
+    ru: {
+      name: 'Лидия Неклюенко',
+      list: ['Учитель рисования для всех возрастов', 'Картины, портреты на заказ'],
+    },
   };
-  const { name, list } = content[lang]!;
+  const { name, list } = content[language]!;
   return (
     <>
       <Head>
@@ -28,17 +33,18 @@ export default function Home() {
       <main className="flex flex-col justify-center  m-auto h-[100vh] rounded bg-cover bg-center" style={{
         backgroundImage: `url(${bg.src})`,
       }}>
-        <div className="ml-20">
-          <h1 className="text-6xl font-bold text-main-red mt-[30vh] ">{name}</h1>
-          <ul className="text-4xl">
-            { list.map((item) => <li key={item.slice(0, 9)}>{item}</li>) }
-          </ul>
+        <div className="m-2 p-6 xl:m-10 xl:p-20 justify-center bg-white bg-opacity-25 h-full flex flex-col rounded">
+          <div>
+            <h1 className="text-center xl:text-left text-5xl xl:text-6xl font-bold text-main-red mt-[20vh] mb-8 ">{name}</h1>
+            <ul className="max-w-2xl ml-auto mr-auto text-3xl xl:ml-0 xl:mr-0 xl:max-w-none xl:text-4xl list-inside  xl:list-disc xl:leading-snug">
+              { list.map((item) => <li key={item.slice(0, 9)}>{item}</li>) }
+            </ul>
+          </div>
+          <div className="text-3xl font-bold xl:text-4xl underline text-main-red mb-10 mt-auto self-center justify-self-end">
+            <a href="https://facebook.com/lipane.art">facebook.com/lipane.art</a>
+          </div>
         </div>
-
-        <div className="text-4xl text-main-red mt-auto mb-10 self-center">
-          <a href="https://facebook.com/lipane.art">facebook.com/lipane.art</a>
-        </div>
-
+        <LanguageSwitcher />
       </main>
     </>
   )
