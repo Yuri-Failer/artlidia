@@ -12,7 +12,7 @@ function LanguageSwitcher() {
   return (
     <div>
       <button className="m-3 outline-4 outline-amber-700 out" type="button" onClick={handleChange} value="ru">RU</button>
-      <p>Value: {language}</p>
+      {/*<p>Value: {language}</p>*/}
     </div>
   );
 }

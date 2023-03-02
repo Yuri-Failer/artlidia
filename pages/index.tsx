@@ -33,18 +33,18 @@ export default function Home() {
       <main className="flex flex-col justify-center  m-auto h-[100vh] rounded bg-cover bg-center" style={{
         backgroundImage: `url(${bg.src})`,
       }}>
-        <div className="m-2 p-6 xl:m-10 xl:p-20 justify-center bg-white bg-opacity-25 h-full flex flex-col rounded">
+        <div className="m-2 p-6 xl:m-10 xl:p-20 justify-center  h-full flex flex-col rounded">
           <div>
-            <h1 className="text-center xl:text-left text-5xl xl:text-6xl font-bold text-main-red mt-[20vh] mb-8 ">{name}</h1>
+            <h1 className="text-center xl:text-left text-5xl xl:text-6xl font-bold text-main-red mt-[20vh] mb-4 ">{name}</h1>
             <ul className="max-w-2xl ml-auto mr-auto text-3xl xl:ml-0 xl:mr-0 xl:max-w-none xl:text-4xl list-inside  xl:list-disc xl:leading-snug">
               { list.map((item) => <li key={item.slice(0, 9)}>{item}</li>) }
             </ul>
           </div>
-          <div className="text-3xl font-bold xl:text-4xl underline text-main-red mb-10 mt-auto self-center justify-self-end">
+          <div className="text-3xl font-bold xl:text-4xl underline text-main-red mt-auto self-center justify-self-end">
             <a href="https://facebook.com/lipane.art">facebook.com/lipane.art</a>
           </div>
+          <LanguageSwitcher />
         </div>
-        <LanguageSwitcher />
       </main>
     </>
   )
