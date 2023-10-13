@@ -19,6 +19,21 @@
 /*  box-shadow: 2px 2px 4px rgba(0,0,0,.6);*/
 /*}*/
 
+.bgWall{
+  background-image: url('/wall-bg.jpeg');
+  background-repeat: repeat;
+  background-size: 70%;
+  /*position: relative;*/
+}
+
+.blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(108px);
+}
 
 .imgClassic {
   border: solid 2px;
