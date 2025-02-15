@@ -35,3 +35,14 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+# VS Code specific files
+.vscode/*
+.history/
+*.code-workspace
+.vsix
+
+# General IDE/Editor files
+.DS_Store
+.idea/
+*.swp
+*.swo
