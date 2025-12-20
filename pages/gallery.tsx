@@ -1,8 +1,8 @@
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import ArtworkCard from '@/components/ArtworkCard';
-import { Artwork } from '@/types/artwork';
 import artworksData from '@/data/artworks.json';
+import type { Artwork } from '@/types/artwork';
 
 interface GalleryProps {
   artworks: Artwork[];
@@ -26,9 +26,9 @@ export default function Gallery({ artworks }: GalleryProps) {
 
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           {/* Masonry Grid Layout */}
-          <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+          <div className="columns-1 sm:columns-2 lg:columns-3 [column-gap:1.5rem]">
             {artworks.map((artwork) => (
-              <div key={artwork.id} className="break-inside-avoid">
+              <div key={artwork.id} className="mb-6 [break-inside:avoid]">
                 <ArtworkCard artwork={artwork} />
               </div>
             ))}

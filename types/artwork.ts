@@ -4,7 +4,7 @@ export interface Artwork {
   year: number;
   technique: string;
   dimensions: string;
-  description: string;
+  description?: string;
   image: string;
   frame?: string;
 }

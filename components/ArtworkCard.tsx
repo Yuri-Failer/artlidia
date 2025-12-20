@@ -1,6 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
-import Image from 'next/image';
-import { Artwork } from '@/types/artwork';
+import type { Artwork } from '@/types/artwork';
 
 interface ArtworkCardProps {
   artwork: Artwork;
@@ -12,12 +12,11 @@ export default function ArtworkCard({ artwork }: ArtworkCardProps) {
       href={`/artwork/${artwork.id}`}
       className="group block overflow-hidden rounded-lg bg-white shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
     >
-      <div className="relative aspect-[3/4] overflow-hidden bg-gray-100">
-        <Image
+      <div className="w-full overflow-hidden bg-gray-100">
+        <img
           src={artwork.image}
           alt={artwork.title}
-          fill
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
+          className="h-auto w-full transition-transform duration-300 group-hover:scale-105"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
       </div>
